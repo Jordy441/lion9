@@ -1,19 +1,338 @@
 
-<header class="main-header">
-  <a href="#dashboard" class="brand">
-    <img
-      src="lionshield-logo.png"
-      alt="Lion Shield - Secure Analyse Innovate"
-      class="brand-logo"
-    >
-  </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lion Shield | AI & Data Security</title>
+<style>
+:root {
+  --bg:#080d18;
+  --panel:#111b2d;
+  --border:#24334c;
+  --gold:#e8b84d;
+  --blue:#38a9ff;
+  --green:#30d69a;
+  --red:#ff6474;
+  --text:#edf3ff;
+  --muted:#8d9bb2;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+}
+header{
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 30px;
+  background:#0d1524;
+  border-bottom:1px solid var(--border);
+}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:var(--gold)}
+.logo small{font-size:11px;color:var(--muted)}
+nav{display:flex;gap:22px}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:13px;
+}
+nav a:hover{color:var(--gold)}
+.status{color:var(--green);font-size:12px}
+main{padding:30px;max-width:1400px;margin:auto}
+.heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:25px;
+}
+h1{font-size:27px;margin:0 0 8px}
+.subtitle{color:var(--muted);font-size:13px}
+button{
+  border:0;
+  padding:11px 17px;
+  background:var(--gold);
+  color:#101827;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+}
+button:hover{opacity:.85}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px;
+}
+.metric-label{font-size:12px;color:var(--muted)}
+.metric{font-size:30px;font-weight:bold;margin:13px 0}
+.green{color:var(--green)}
+.gold{color:var(--gold)}
+.red{color:var(--red)}
+.blue{color:var(--blue)}
+.section{
+  margin-top:23px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:18px;
+}
+h2{font-size:17px;margin:0 0 20px}
+.progress{
+  height:8px;
+  background:#26334a;
+  border-radius:20px;
+  margin:12px 0 20px;
+  overflow:hidden;
+}
+.progress div{
+  height:100%;
+  background:var(--green);
+  border-radius:20px;
+}
+.feature{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.tag{
+  font-size:11px;
+  color:var(--green);
+}
+.tag.warning{color:var(--gold)}
+.tag.danger{color:var(--red)}
+.activity{
+  font-size:13px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+  line-height:1.6;
+}
+.activity small{color:var(--muted)}
+.assistant{
+  margin-top:20px;
+}
+.chat{
+  background:#0b1423;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:7px;
+  min-height:80px;
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+.chat-input{display:flex;gap:10px}
+input{
+  flex:1;
+  min-width:0;
+  background:#0b1423;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:12px;
+}
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:11px;
+}
+@media(max-width:850px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .section{grid-template-columns:1fr}
+  nav{display:none}
+}
+@media(max-width:480px){
+  main{padding:18px}
+  header{padding:0 18px}
+  .grid{grid-template-columns:1fr 1fr}
+  .metric{font-size:23px}
+}
+</style>
+</head>
 
+<body>
+<header>
+  <div class="logo">🛡️ LION <span>SHIELD</span>
+    <small> AI SECURITY PLATFORM</small>
+  </div>
   <nav>
     <a href="#dashboard">Dashboard</a>
     <a href="#protection">Protection</a>
     <a href="#activity">Activity</a>
     <a href="#assistant">AI Assistant</a>
   </nav>
-
   <div class="status">● SYSTEM ONLINE</div>
 </header>
+
+<main id="dashboard">
+  <div class="heading">
+    <div>
+      <h1>Security Command Centre</h1>
+      <div class="subtitle">AI intelligence • Data protection • Cyber defence</div>
+    </div>
+    <button onclick="scan()">Run Security Scan</button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="metric-label">SECURITY SCORE</div>
+      <div class="metric green" id="score">98%</div>
+      <div class="subtitle">Demo security rating</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">THREATS DETECTED</div>
+      <div class="metric red" id="threats">03</div>
+      <div class="subtitle">Simulated threat count</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">DATA PROTECTION</div>
+      <div class="metric blue">ACTIVE</div>
+      <div class="subtitle">Interface status only</div>
+    </div>
+    <div class="card">
+      <div class="metric-label">AI MONITORING</div>
+      <div class="metric gold">READY</div>
+      <div class="subtitle">Demo assistant enabled</div>
+    </div>
+  </div>
+
+  <div class="section" id="protection">
+    <div class="card">
+      <h2>🛡️ Protection Overview</h2>
+
+      <div class="feature">
+        <span>Network Security</span>
+        <span class="tag">● DEMO ACTIVE</span>
+      </div>
+      <div class="feature">
+        <span>Data Encryption</span>
+        <span class="tag">● CONFIGURATION NEEDED</span>
+      </div>
+      <div class="feature">
+        <span>Access Management</span>
+        <span class="tag">● DEMO ACTIVE</span>
+      </div>
+      <div class="feature">
+        <span>Threat Detection</span>
+        <span class="tag warning">● SIMULATED</span>
+      </div>
+      <div class="feature">
+        <span>Backup Protection</span>
+        <span class="tag warning">● NOT CONNECTED</span>
+      </div>
+
+      <h2 style="margin-top:25px">Data Security Index</h2>
+      <div class="progress"><div style="width:85%"></div></div>
+      <div class="subtitle">85% illustrative progress indicator</div>
+    </div>
+
+    <div class="card" id="activity">
+      <h2>⚡ Security Activity</h2>
+      <div id="logs">
+        <div class="activity">
+          <span class="green">●</span> Dashboard initialized
+          <br><small>System interface loaded</small>
+        </div>
+        <div class="activity">
+          <span class="gold">●</span> AI monitoring ready
+          <br><small>Demo environment</small>
+        </div>
+        <div class="activity">
+          <span class="blue">●</span> Data security module loaded
+          <br><small>Awaiting configuration</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card assistant" id="assistant">
+    <h2>🤖 Lion Shield AI Assistant</h2>
+    <div class="subtitle" style="margin-bottom:15px">
+      Ask questions about cybersecurity and data protection.
+    </div>
+    <div class="chat" id="response">
+      <strong class="gold">LION AI:</strong><br>
+      Welcome to Lion Shield. I can provide basic cybersecurity guidance.
+      What would you like to know?
+    </div>
+    <div class="chat-input">
+      <input id="question" placeholder="Ask about passwords, phishing, data security...">
+      <button onclick="askAI()">Ask AI</button>
+    </div>
+    <div class="subtitle" style="margin-top:10px">
+      Local demonstration assistant. No external AI service is connected.
+    </div>
+  </div>
+</main>
+
+<footer>
+  LION SHIELD © 2026 | AI • DATA • SECURITY
+  <br><br>
+  Prototype dashboard. No real-time threat detection, encryption,
+  authentication or network monitoring is performed.
+</footer>
+
+<script>
+function addLog(message){
+  const logs=document.getElementById("logs");
+  const entry=document.createElement("div");
+  entry.className="activity";
+  const time=new Date().toLocaleTimeString();
+  entry.textContent="● "+message+" — "+time;
+  logs.prepend(entry);
+}
+
+function scan(){
+  document.getElementById("score").textContent="...";
+  setTimeout(()=>{
+    document.getElementById("score").textContent="98%";
+    addLog("Demo security scan completed");
+    alert("Demo scan completed. No actual devices or networks were scanned.");
+  },1000);
+}
+
+function askAI(){
+  const input=document.getElementById("question");
+  const q=input.value.trim().toLowerCase();
+  if(!q)return;
+
+  let answer="For better cybersecurity, keep software updated, use unique passwords, enable multi-factor authentication and regularly back up important data.";
+
+  if(q.includes("password")){
+    answer="Use long, unique passwords for every account. Consider a reputable password manager and enable multi-factor authentication.";
+  }else if(q.includes("phishing")){
+    answer="Be careful with unexpected emails, suspicious links and attachments. Verify the sender through a trusted channel before sharing information.";
+  }else if(q.includes("data")){
+    answer="Protect sensitive data with encryption, access controls, secure backups and a documented data retention policy.";
+  }else if(q.includes("hack")||q.includes("attack")){
+    answer="Use multi-factor authentication, patch vulnerabilities, monitor access logs and maintain an incident response plan.";
+  }else if(q.includes("ai")){
+    answer="AI can assist with security analysis, anomaly detection and incident prioritisation when connected to properly secured data sources.";
+  }
+
+  const response=document.getElementById("response");
+  response.textContent="LION AI: "+answer;
+  input.value="";
+}
+
+document.getElementById("question")
+.addEventListener("keydown",e=>{
+  if(e.key==="Enter")askAI();
+});
+</script>
+</body>
+</html>
